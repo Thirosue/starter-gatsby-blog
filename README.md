@@ -57,6 +57,8 @@ Spin up a production-ready server with your blog. Don't forget to build your pag
 
 See the [official Contentful getting started guide](https://www.contentful.com/developers/docs/tutorials/general/get-started/).
 
+## Deploy to Netlify
+
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/Thirosue/starter-gatsby-blog">
   <img src="https://www.netlify.com/img/deploy/button.svg" title="Deploy to Netlify">
 </a>
