@@ -19,6 +19,10 @@ class TestIndex extends React.Component {
   // ブラウザ実行時のみ実行する
   // https://takumon.com/error-about-window-is-not-available-during-server-side-rendering-gatsby
   componentDidMount() {
+    this.getArticles()
+  }
+
+  getArticles() {
     const rand = getRandomInt(4);
     fetch(`https://chakky-jr.github.io/mock/sample1/${rand}.json`)
     .then(response => response.json())
