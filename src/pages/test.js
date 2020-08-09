@@ -13,7 +13,9 @@ function getRandomInt(max) {
 class TestIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {articles: []};
+    this.state = { articles: [] };
+
+    this.getArticles = this.getArticles.bind(this);
   }
 
   // ブラウザ実行時のみ実行する
@@ -25,11 +27,11 @@ class TestIndex extends React.Component {
   getArticles() {
     const rand = getRandomInt(4);
     fetch(`https://chakky-jr.github.io/mock/sample1/${rand}.json`)
-    .then(response => response.json())
-    .then(response => {
-      console.log(response);
-      this.setState({articles: response})
-    });
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        this.setState({ articles: response })
+      });
   }
 
   render() {
@@ -42,7 +44,16 @@ class TestIndex extends React.Component {
           <Helmet title={siteTitle} />
           <Hero data={author.node} />
           <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
+            <div className="clearfix">
+              <div className="left-column">
+                <h2 className="section-headline">Recent articles</h2>
+              </div>
+              <div className="right-column">
+                <a href="javascript:void(0)">
+                  <h4 className="section-reload" onClick={this.getArticles}>Reload</h4>
+                </a>
+              </div>
+            </div>
             <ul className="article-list">
               {this.state.articles.map((node, i) => {
                 return (
